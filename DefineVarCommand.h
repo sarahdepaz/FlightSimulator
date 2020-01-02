@@ -6,14 +6,14 @@
 using namespace std;
 
 class DefineVarCommand : public Command {
-  map<string, Expression*>* _savedNames;
+  map<string, Expression *> *_savedNames;
 
  public:
-  DefineVarCommand(map<string, double>* symbolTable, map<string, Expression*>* savedNames);
-  virtual int execute(vector<string>& arguments, unsigned int index);
+  DefineVarCommand(map<string, double> *symbolTable, map<string, Expression *> *savedNames);
+  virtual int execute(vector<string> &arguments, unsigned int index);
 
  private:
   void checkValidity(string varName);
 };
 
-#endif	//	!DEFINE_VAR_COMMAND_H
+#endif    //	!DEFINE_VAR_COMMAND_H

@@ -3,9 +3,9 @@
 
 using namespace std;
 
-LoopCommand::LoopCommand(map<string, double>* symbolTable,
-                         map<string, Expression*>* expressionsMap,
-                         Parser* interpreter):
+LoopCommand::LoopCommand(map<string, double> *symbolTable,
+                         map<string, Expression *> *expressionsMap,
+                         Parser *interpreter) :
     ConditionParser(symbolTable, expressionsMap, interpreter) {
   _argumentsAmount = 5;
 }
@@ -13,7 +13,7 @@ LoopCommand::LoopCommand(map<string, double>* symbolTable,
 /*
 * extracts it's block of commands and runs it while condition is true.
 * */
-int LoopCommand::execute(vector<string>& arguments, unsigned int index) {
+int LoopCommand::execute(vector<string> &arguments, unsigned int index) {
   if ((arguments.size() - 1 - index) < _argumentsAmount)
     throw "Amount of arguments is lower than " + to_string(_argumentsAmount);
   while (this->conditionIsTrue(arguments)) {

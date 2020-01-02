@@ -4,11 +4,11 @@
 
 #include "RLarrow.h"
 
-RLarrow::RLarrow(map<string, string>* pathToVar) {
+RLarrow::RLarrow(map<string, string> *pathToVar) {
   this->_pathToVar = pathToVar;
 }
 
-int RLarrow::execute(vector<string>& arguments, unsigned int index) {
+int RLarrow::execute(vector<string> &arguments, unsigned int index) {
   string path = arguments[index + 3];
   string varName = arguments[index - 1];
   if (path[0] == '\"' && path[path.length() - 1] == '\"') {

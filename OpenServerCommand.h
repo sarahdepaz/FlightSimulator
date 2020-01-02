@@ -12,9 +12,9 @@ class OpenServerCommand : public Command {
   DataReaderServer _dataReaderServer;
 
  public:
-  OpenServerCommand(map<string,double>* symbolTable,
-                    map<string, string>* pathToVar,
-                    Modifier* modifier):
+  OpenServerCommand(map<string, double> *symbolTable,
+                    map<string, string> *pathToVar,
+                    Modifier *modifier) :
       _dataReaderServer(DataReaderServer(symbolTable, pathToVar, modifier)) {
     _argumentsAmount = 3;
   }
@@ -22,7 +22,7 @@ class OpenServerCommand : public Command {
   /*
   * opens a server that the simulator could connect to.
   * */
-  virtual int execute(vector<string>& arguments, unsigned int index) {
+  virtual int execute(vector<string> &arguments, unsigned int index) {
     if ((arguments.size() - 1) < _argumentsAmount)
       throw "Amount of arguments is lower than " + to_string(_argumentsAmount);
     return _dataReaderServer.execute(arguments, index + 1);

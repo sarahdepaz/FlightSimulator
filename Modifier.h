@@ -11,16 +11,16 @@ using namespace std;
 * */
 class Modifier {
  protected:
-  map<string, vector<string>>* _bindedVarTable;
-  map<string, double>* _symbolTable;
-  map<string, string>* _varToPath;
-  ConnectControlClient* _connectCommand;
+  map<string, vector<string>> *_bindedVarTable;
+  map<string, double> *_symbolTable;
+  map<string, string> *_varToPath;
+  ConnectControlClient *_connectCommand;
 
  public:
-  Modifier(map<string, vector<string>>* bindedVarTable,
-           map<string, double>* symbolTable,
-           map<string, string>* varToPath,
-           ConnectControlClient* connectCommand);
+  Modifier(map<string, vector<string>> *bindedVarTable,
+           map<string, double> *symbolTable,
+           map<string, string> *varToPath,
+           ConnectControlClient *connectCommand);
   void setVariableValue(string var, double value);
   void updateSimulator(string varName);
 };

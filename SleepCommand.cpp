@@ -5,12 +5,12 @@
 
 using namespace std;
 
-SleepCommand::SleepCommand(map<string, double>* symbolTable) {
+SleepCommand::SleepCommand(map<string, double> *symbolTable) {
   _argumentsAmount = 3;
   _symbolTable = symbolTable;
 }
 
-int SleepCommand::execute(vector<string>& arguments, unsigned int index) {
+int SleepCommand::execute(vector<string> &arguments, unsigned int index) {
   if ((arguments.size() - 1) < _argumentsAmount) {
     throw "Arguments amount is lower than " + to_string(_argumentsAmount);
   }

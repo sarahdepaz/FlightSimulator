@@ -10,8 +10,8 @@ using namespace std;
 class PrintCommand : public Command {
 
  public:
-  PrintCommand(map<string,double>* symbolTable);
-  virtual int execute(vector<string>& arguments, unsigned int index);
+  PrintCommand(map<string, double> *symbolTable);
+  virtual int execute(vector<string> &arguments, unsigned int index);
 };
 
 #endif //	!PRINT_COMMAND_H

@@ -11,16 +11,16 @@ using namespace std;
  * Class that adapts a Command as an Expression object.
  * */
 class CommandExpression : public Expression {
-  Command* _command;
+  Command *_command;
 
  public:
   CommandExpression() {}
 
-  CommandExpression(Command* command) {
+  CommandExpression(Command *command) {
     _command = command;
   }
 
-  virtual double calculate(vector<string>& arguments, int index) {
+  virtual double calculate(vector<string> &arguments, int index) {
     return _command->execute(arguments, index);
   }
 

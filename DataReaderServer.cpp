@@ -22,10 +22,10 @@ DataReaderServer::~DataReaderServer() {
   close(this->_sockID);
 }
 
-DataReaderServer::DataReaderServer(map<string,double>* symbolTable,
-                                   map<string, string>* pathToVar,
+DataReaderServer::DataReaderServer(map<string, double> *symbolTable,
+                                   map<string, string> *pathToVar,
 
-                                   Modifier* modifier) {
+                                   Modifier *modifier) {
   _symbolTable = symbolTable;
   _pathToVar = pathToVar;
   _modifier = modifier;
@@ -38,7 +38,7 @@ DataReaderServer::DataReaderServer(map<string,double>* symbolTable,
 * Opens a server on a different thread that the simulator connects to, and recieves messages from it
 * at a given speed.
 * */
-int DataReaderServer::execute(vector<string>& arguments, unsigned int index) {
+int DataReaderServer::execute(vector<string> &arguments, unsigned int index) {
   if ((arguments.size() - 1) < _argumentsAmount)
     throw "Amount of arguments is lower than " + to_string(_argumentsAmount);
   _port = (int) Evaluator::evaluate(arguments, &(++index), _symbolTable);
@@ -65,7 +65,7 @@ void DataReaderServer::openSocket() {
   address.sin_family = AF_INET;
   address.sin_addr.s_addr = INADDR_ANY;
   address.sin_port = htons(_port);
-  if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0) {
+  if (bind(server_fd, (struct sockaddr *) &address, sizeof(address)) < 0) {
     throw "Could not bind";
     exit(-1);
   }
@@ -73,7 +73,7 @@ void DataReaderServer::openSocket() {
     cout << "Could not listen, please be more quiet, CLI is terminated" << endl;
     exit(1);
   }
-  _sockID = accept(server_fd, (struct sockaddr*) &address, &addrlen);
+  _sockID = accept(server_fd, (struct sockaddr *) &address, &addrlen);
   if (_sockID < 0) {
     cout << "Could not accept a client, CLI is terminated." << endl;
     exit(1);
@@ -88,8 +88,8 @@ void DataReaderServer::openSocket() {
 void DataReaderServer::startServer(int new_socket,
                                    unsigned int speed,
 
-                                   map<string, string>* pathToVar,
-                                   Modifier* modifier) {
+                                   map<string, string> *pathToVar,
+                                   Modifier *modifier) {
   vector<string> names = getNames();
   char buffer[1024];
   // mutex mtx;
@@ -129,9 +129,9 @@ void DataReaderServer::startServer(int new_socket,
 * and updates them accourding to the simulator.
 * */
 void DataReaderServer::updateVars(vector<double> values,
-                                  Modifier* modifier,
-                                  map<string, string>* pathToVar,
-                                  vector<string>& names) {
+                                  Modifier *modifier,
+                                  map<string, string> *pathToVar,
+                                  vector<string> &names) {
   for (unsigned int i = 0; i < names.size(); i++) {
     string var = pathToVar->operator[](names[i]);
     modifier->setVariableValue(var, values[i]);

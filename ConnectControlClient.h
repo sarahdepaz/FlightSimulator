@@ -7,9 +7,9 @@ using namespace std;
 class ConnectControlClient : public Command {
   int _client_fd;
   int _port;
-  map<string, double>* _symbolTable;
+  map<string, double> *_symbolTable;
 
-  void startClient(const char* dst_addr);
+  void startClient(const char *dst_addr);
 
  public:
 
@@ -17,13 +17,13 @@ class ConnectControlClient : public Command {
   * function that starts the connection between the simulator and program
   * as clients.
   */
-  ConnectControlClient(map<string, double>* symbolTable);
+  ConnectControlClient(map<string, double> *symbolTable);
 
   /*
   * do Command reads the arguments and sets the connection
   * between the simulator.
   * */
-  virtual int execute(vector<string>& arguments, unsigned int index);
+  virtual int execute(vector<string> &arguments, unsigned int index);
   void sendMessage(const string message);
   ~ConnectControlClient();
 };

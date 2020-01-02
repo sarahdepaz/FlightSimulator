@@ -2,10 +2,10 @@
 
 using namespace std;
 
-Modifier::Modifier(map<string, vector<string>>* bindedVarTable,
-                   map<string, double>* symbolTable,
-                   map<string, string>* varToPath,
-                   ConnectControlClient* connectCommand) {
+Modifier::Modifier(map<string, vector<string>> *bindedVarTable,
+                   map<string, double> *symbolTable,
+                   map<string, string> *varToPath,
+                   ConnectControlClient *connectCommand) {
   _bindedVarTable = bindedVarTable;
   _symbolTable = symbolTable;
   _varToPath = varToPath;

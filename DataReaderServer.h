@@ -7,24 +7,23 @@
 using namespace std;
 
 class DataReaderServer : public Command {
-  map<string, string>* _pathToVar;
-  Modifier* _modifier;
+  map<string, string> *_pathToVar;
+  Modifier *_modifier;
   int _sockID;
   int _port;
  public:
 
-  DataReaderServer(map<string,double>* symbolTable,
-                   map<string, string>* pathToVar,
+  DataReaderServer(map<string, double> *symbolTable,
+                   map<string, string> *pathToVar,
 
-                   Modifier* modifier);
-
+                   Modifier *modifier);
 
   /*
   * execute ->
   * Opens a server on a different thread that the simulator connects to, and recieves messages from it
   * at a given speed.
   * */
-  virtual int execute(vector<string>& arguments, unsigned int index);
+  virtual int execute(vector<string> &arguments, unsigned int index);
   virtual ~DataReaderServer();
  private:
 
@@ -34,13 +33,13 @@ class DataReaderServer : public Command {
   void openSocket();
   static void startServer(int new_socket,
                           unsigned int speed,
-                          map<string, string>* pathToVar,
-                          Modifier* modifier);
+                          map<string, string> *pathToVar,
+                          Modifier *modifier);
   static void updateVars(vector<double> values,
-                         Modifier* modifier,
-                         map<string, string>* pathToVar,
-                         vector<string>& names);
+                         Modifier *modifier,
+                         map<string, string> *pathToVar,
+                         vector<string> &names);
   static vector<string> getNames();
 };
 
-#endif	//	!DATA_READER_SERVER_H
+#endif    //	!DATA_READER_SERVER_H

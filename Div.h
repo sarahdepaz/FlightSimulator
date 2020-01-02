@@ -6,7 +6,7 @@
 using namespace std;
 /**
  * Div class
-*  define the binary expression divide.
+*  Defines the binary expression divide operator.
 * */
 class Div : public BinaryExpression {
  public:

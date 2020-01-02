@@ -33,42 +33,62 @@ connectControlClient("127.0.0.1",5402)
 
 # Initialize your variables:
 ```
-var warp -> sim("/sim/time/warp") <br>
-var magnetos -> sim("/controls/switches/magnetos") <br>
-var throttle -> sim("/controls/engines/current-engine/throttle")<br>
-var mixture -> sim("/controls/engines/current-engine/mixture")<br>
-var masterbat -> sim("/controls/switches/master-bat")<br>
-var masterlat -> sim("/controls/switches/master-alt")<br>
-var masteravionics -> sim("/controls/switches/master-avionics")<br>
-var brakeparking -> sim("/sim/model/c172p/brake-parking")<br>
-var primer -> sim("/controls/engines/engine/primer")<br>
-var starter -> sim("/controls/switches/starter")<br>
-var autostart -> sim("/engines/active-engine/auto-start")<br>
-var breaks -> sim("/controls/flight/speedbrake")<br>
-var heading <- sim("/instrumentation/heading-indicator/offset-deg")<br>
-var airspeed <- sim("/instrumentation/airspeed-indicator/indicated-speed-kt")<br>
-var roll <- sim("/instrumentation/attitude-indicator/indicated-roll-deg")<br>
-var pitch <- sim("/instrumentation/attitude-indicator/internal-pitch-deg")<br>
-var rudder -> sim("/controls/flight/rudder")<br>
-var aileron -> sim("/controls/flight/aileron")<br>
-var elevator -> sim("/controls/flight/elevator")<br>
-var alt <- sim("/instrumentation/altimeter/indicated-altitude-ft")<br>
-var rpm <- sim("/engines/engine/rpm")<br>
-Initialize variables using the keyword '->' and '<-'. <br>
-Initializing without the keyword will result in failure.<br>
-The '->' and '<-' keyword is used to bind a variable to a specific path. See generic_small.xml file for all paths.<br>
-Exceute your commands:<br>
-breaks = 0<br>
-throttle = 1<br>
-var h0 = heading<br>
-while alt < 1000 {<br>
-    rudder = (h0 – heading)/20<br>
-    aileron = - roll / 70<br>
-    elevator = pitch / 50<br>
-    Print alt<br>
-    Sleep 250<br>
-}<br>
-Print "done"<br>
+openDataServer(5400)
+connectControlClient("127.0.0.1",5402)
+var warp -> sim("/sim/time/warp")
+var magnetos -> sim("/controls/switches/magnetos")
+var throttle -> sim("/controls/engines/current-engine/throttle")
+var mixture -> sim("/controls/engines/current-engine/mixture")
+var masterbat -> sim("/controls/switches/master-bat")
+var masterlat -> sim("/controls/switches/master-alt")
+var masteravionics -> sim("/controls/switches/master-avionics")
+var brakeparking -> sim("/sim/model/c172p/brake-parking")
+var primer -> sim("/controls/engines/engine/primer")
+var starter -> sim("/controls/switches/starter")
+var autostart -> sim("/engines/active-engine/auto-start")
+var breaks -> sim("/controls/flight/speedbrake")
+var heading <- sim("/instrumentation/heading-indicator/indicated-heading-deg")
+var airspeed <- sim("/instrumentation/airspeed-indicator/indicated-speed-kt")
+var roll <- sim("/instrumentation/attitude-indicator/indicated-roll-deg")
+var pitch <- sim("/instrumentation/attitude-indicator/internal-pitch-deg")
+var rudder -> sim("/controls/flight/rudder")
+var aileron -> sim("/controls/flight/aileron")
+var elevator -> sim("/controls/flight/elevator")
+var alt <- sim("/instrumentation/altimeter/indicated-altitude-ft")
+var rpm <- sim("/engines/engine/rpm")
+Print("waiting 2 minutes for gui")
+Sleep(5000)
+Print("let's start")
+warp = 32000
+Sleep(1000)
+magnetos = 3
+throttle = 0.2
+mixture = 0.949
+masterbat = 1
+masterlat = 1
+masteravionics = 1
+brakeparking = 0
+primer = 3
+starter = 1
+autostart = 1
+Print("engine is warming...")
+Print(rpm)
+while rpm <= 750 {
+	Print(rpm)
+}
+Sleep(5000)
+Print("let's fly")
+var h0 = heading
+breaks = 0
+throttle = 1
+while alt < 1000 {
+	rudder = (h0 - heading)/80
+	aileron = -roll / 70
+	elevator = pitch / 50
+	Sleep(250)
+	Print(alt)
+}
+Print("done")
 ```
 
 

@@ -8,7 +8,7 @@ using namespace std;
 /*
 * adds spaces to a line before and after operators.
 * */
-void StringHelper::addSpaces(string& line) {
+void StringHelper::addSpaces(string &line) {
   string needSpaces = string(SHOULD_GET_SPACES);
   string doubleCharSpaces = string(DOUBLE_CHAR_OPERANTS);
   string seperator = ",";
@@ -24,7 +24,7 @@ void StringHelper::addSpaces(string& line) {
         line.insert(i + 1, " ");
         line.insert(i, " ");
       }
-      i+=2;
+      i += 2;
     }
   }
 }
@@ -32,7 +32,7 @@ void StringHelper::addSpaces(string& line) {
 /*
 * returns a string concatenating a vector of strings.
 * */
-string StringHelper::getArgument(vector<string>& arguments) {
+string StringHelper::getArgument(vector<string> &arguments) {
   string argument = "";
   for (string arg : arguments)
     argument += (arg + " ");
@@ -43,7 +43,7 @@ string StringHelper::getArgument(vector<string>& arguments) {
 * gets a string and splits it by a given set of strings.
 * returns a vector of strings.
 * */
-vector<string> StringHelper::split(string line, const char* delim) {
+vector<string> StringHelper::split(string line, const char *delim) {
   vector<string> commands;
   unsigned int firstIndex;
   while ((firstIndex = line.find_first_of(delim)) < line.length()) {
@@ -62,7 +62,7 @@ vector<string> StringHelper::split(string line, const char* delim) {
 * gets a string and splits it by a given set of strings.
 * returns a vector of strings.
 * */
-vector<string> StringHelper::split2(string line, const char* delim) {
+vector<string> StringHelper::split2(string line, const char *delim) {
   vector<string> commands;
   unsigned int firstIndex;
   while ((firstIndex = line.find_first_of(delim)) < line.length()) {
@@ -77,7 +77,6 @@ vector<string> StringHelper::split2(string line, const char* delim) {
     commands.push_back(line);
   return commands;
 }
-
 
 /*
 * returns whether the string s ends with the string suffix.
@@ -106,7 +105,7 @@ bool StringHelper::startsWith(const string s, const string prefix) {
 /*
 * splits a vector of strings to e vector of vectors of strings by a given character to split by.
 * */
-vector<vector<string>> StringHelper::splitVector(const vector<string>& vec, const char* delim) {
+vector<vector<string>> StringHelper::splitVector(const vector<string> &vec, const char *delim) {
   vector<vector<string>> total;
   vector<string> current;
   auto end = vec.end();
@@ -125,7 +124,6 @@ vector<vector<string>> StringHelper::splitVector(const vector<string>& vec, cons
     total.push_back(current);
   return total;
 }
-
 
 /*
 * removes all strings from a vector of strings untill reached the flag s.

@@ -10,10 +10,10 @@
 
 using namespace std;
 
-map<string, int> Evaluator::_precedenceMap =  {{"+", 0}, {"-", 0}, {"*", 1}, {"/", 1}};
-vector<string>* Evaluator::commandNames = nullptr;
+map<string, int> Evaluator::_precedenceMap = {{"+", 0}, {"-", 0}, {"*", 1}, {"/", 1}};
+vector<string> *Evaluator::commandNames = nullptr;
 
-double Evaluator::evaluate(vector<string> arguments, unsigned int* index, map<string, double>* symbolTable) {
+double Evaluator::evaluate(vector<string> arguments, unsigned int *index, map<string, double> *symbolTable) {
   vector<string> postfix = toPostfix(arguments, index, symbolTable);
   *index = lastIndex(arguments, index) + 1;
   return calculatePostfix(postfix);
@@ -23,8 +23,8 @@ double Evaluator::evaluate(vector<string> arguments, unsigned int* index, map<st
 * assigns variables value by a given map.
 * */
 vector<string> Evaluator::assignVars(vector<string> arguments,
-                                     unsigned int* index,
-                                     map<string, double>* symbolTable) {
+                                     unsigned int *index,
+                                     map<string, double> *symbolTable) {
   unsigned int indexCopy = *index;
   map<string, int> operands(_precedenceMap);
   operands[")"] = 0;
@@ -62,7 +62,7 @@ vector<string> Evaluator::assignVars(vector<string> arguments,
 * returns the last index of the expression.
 * */
 unsigned int Evaluator::lastIndex(vector<string> arguments,
-                                  unsigned int* index) {
+                                  unsigned int *index) {
   bool firstIsOperand;
   bool secondIsOperand;
   map<string, int> operands(_precedenceMap);
@@ -72,7 +72,8 @@ unsigned int Evaluator::lastIndex(vector<string> arguments,
   for (unsigned int i = *index; i < arguments.size() - 1; i++) {
     firstIsOperand = (operands.find(arguments[i]) != operands.end());
     secondIsOperand = (operands.find(arguments[i + 1]) != operands.end());
-    if ((firstIsOperand  || secondIsOperand) && (std::find(commandNames->begin(), commandNames->end(), arguments[i]) == commandNames->end()))
+    if ((firstIsOperand || secondIsOperand)
+        && (std::find(commandNames->begin(), commandNames->end(), arguments[i]) == commandNames->end()))
       continue;
     if (std::find(commandNames->begin(), commandNames->end(), arguments[i]) != commandNames->end())
       return i - 1;
@@ -86,8 +87,8 @@ unsigned int Evaluator::lastIndex(vector<string> arguments,
 * turns an infix vector to postfix.
 * */
 vector<string> Evaluator::toPostfix(vector<string> arguments,
-                                    unsigned int* index,
-                                    map<string, double>* symbolTable) {
+                                    unsigned int *index,
+                                    map<string, double> *symbolTable) {
   vector<string> afterAssign = assignVars(arguments, index, symbolTable);
   unsigned int assignedLastIndex = lastIndex(afterAssign, index) + 1;
   stack<string> operands;

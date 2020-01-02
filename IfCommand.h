@@ -9,10 +9,10 @@ using namespace std;
 
 class IfCommand : public ConditionParser {
  public:
-  IfCommand(map<string, double>* symbolTable,
-            map<string, Expression*>* expressionsMap,
-            Parser* interpreter);
-  virtual int execute(vector<string>& arguments, unsigned int index);
+  IfCommand(map<string, double> *symbolTable,
+            map<string, Expression *> *expressionsMap,
+            Parser *interpreter);
+  virtual int execute(vector<string> &arguments, unsigned int index);
 };
 
 #endif

@@ -6,7 +6,7 @@
 
 using namespace std;
 
-PrintCommand::PrintCommand(map<string,double>* symbolTable) {
+PrintCommand::PrintCommand(map<string, double> *symbolTable) {
   _symbolTable = symbolTable;
   _argumentsAmount = 3;
 }
@@ -14,7 +14,7 @@ PrintCommand::PrintCommand(map<string,double>* symbolTable) {
 /*
 * prints the variables/strings/expressions given as argumennts.
 * */
-int PrintCommand::execute(vector<string>& arguments, unsigned int index) {
+int PrintCommand::execute(vector<string> &arguments, unsigned int index) {
   if ((arguments.size() - 1) < _argumentsAmount)
     throw "Amount of arguments is lower than " + to_string(_argumentsAmount);
   if (arguments[index + 1][0] == '(' && arguments[index + 1][1] != '\"')

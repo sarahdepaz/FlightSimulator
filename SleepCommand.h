@@ -4,8 +4,8 @@
 
 class SleepCommand : public Command {
  public:
-  SleepCommand(map<string, double>* symbolTable);
-  virtual int execute(vector<string>& arguments, unsigned int index);
+  SleepCommand(map<string, double> *symbolTable);
+  virtual int execute(vector<string> &arguments, unsigned int index);
 };
 
 #endif //    !SLEEP_COMMAND_H

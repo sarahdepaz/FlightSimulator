@@ -7,7 +7,7 @@
 
 using namespace std;
 
-DefineVarCommand::DefineVarCommand(map<string, double>* symbolTable, map<string, Expression*>* savedNames) {
+DefineVarCommand::DefineVarCommand(map<string, double> *symbolTable, map<string, Expression *> *savedNames) {
   _symbolTable = symbolTable;
   _savedNames = savedNames;
   _argumentsAmount = 1;
@@ -17,7 +17,7 @@ DefineVarCommand::DefineVarCommand(map<string, double>* symbolTable, map<string,
 * execute ->
 * adds the variable to the variables map and sets it's value to nan (not a number).
 */
-int DefineVarCommand::execute(vector<string>& arguments, unsigned int index) {
+int DefineVarCommand::execute(vector<string> &arguments, unsigned int index) {
   if ((arguments.size() - 1) < _argumentsAmount)
     throw "Amount of arguments is lower than " + to_string(_argumentsAmount);
   if (_symbolTable->find(arguments[++index]) != _symbolTable->end())

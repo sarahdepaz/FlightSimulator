@@ -12,14 +12,13 @@
 #include "Expression.h"
 #include "Lexer.h"
 
-
 using namespace std;
 
 /*
 * main function that runs the interpreter.
 * reads the script line by line.
 * */
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
   Parser interpreter;
   string inputStr;
   // if we have a filename to read from:

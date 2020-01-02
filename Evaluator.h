@@ -12,13 +12,13 @@ using namespace std;
 class Evaluator {
   static map<string, int> _precedenceMap;
   static double calculatePostfix(vector<string> arguments);
-  static vector<string> assignVars(vector<string>, unsigned int*, map<string, double>*);
-  static unsigned int lastIndex(vector<string> arguments, unsigned int* index);
-  static vector<string> toPostfix(vector<string> arguments, unsigned int* index, map<string, double>* symbolTable);
+  static vector<string> assignVars(vector<string>, unsigned int *, map<string, double> *);
+  static unsigned int lastIndex(vector<string> arguments, unsigned int *index);
+  static vector<string> toPostfix(vector<string> arguments, unsigned int *index, map<string, double> *symbolTable);
   static Number calculateNumber(string operant, Number leftNumber, Number rightNumber);
  public:
-  static vector<string>* commandNames;
-  static double evaluate(vector<string> arguments, unsigned int* index, map<string, double>* symbolTable);
+  static vector<string> *commandNames;
+  static double evaluate(vector<string> arguments, unsigned int *index, map<string, double> *symbolTable);
 };
 
 #endif //	!EVALUATOR_H

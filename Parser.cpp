@@ -20,7 +20,7 @@
 using namespace std;
 
 Parser::Parser() {
-  _expressionsMap = new map<string, Expression*>();
+  _expressionsMap = new map<string, Expression *>();
   _symbolTable = new map<string, double>();
   _pathToVar = new map<string, string>();
   _varToPath = new map<string, string>();
@@ -33,7 +33,7 @@ Parser::Parser() {
 unsigned int Parser::parser(vector<string> line, int index) {
   unsigned int linesC = 1;
   for (unsigned int i = index; i < line.size();) {
-    Expression* expression;
+    Expression *expression;
     string argument = StringHelper::getArgument(line);
     StringHelper::addSpaces(argument);
     line = StringHelper::split(argument, " ");
@@ -56,7 +56,7 @@ unsigned int Parser::parser(vector<string> line, int index) {
     } catch (string e) {
       cout << e << endl;
       break;
-    } catch (char const* e) {
+    } catch (char const *e) {
       cout << e << endl;
       break;
     } catch (...) {
@@ -67,7 +67,7 @@ unsigned int Parser::parser(vector<string> line, int index) {
   return linesC;
 }
 
-vector<string> Parser::parseBlock(vector<string>& line, unsigned int* i, unsigned int& linesC) {
+vector<string> Parser::parseBlock(vector<string> &line, unsigned int *i, unsigned int &linesC) {
   string seperator = ",";
   string blockCommands = string(BLOCK_COMMANDS);
   if (blockCommands.find(seperator + line[*i] + seperator) != string::npos) {
@@ -96,24 +96,26 @@ vector<string> Parser::parseBlock(vector<string>& line, unsigned int* i, unsigne
 }
 
 void Parser::setExpressionsMap() {
-  ConnectControlClient* connect = new ConnectControlClient(_symbolTable);
+  ConnectControlClient *connect = new ConnectControlClient(_symbolTable);
   _modifier = new Modifier(_bindedVarTable, _symbolTable, _varToPath, connect);
   _expressionsMap->operator[]("connectControlClient") = new CommandExpression(connect);
-  _expressionsMap->operator[]("openDataServer") = new CommandExpression(new OpenServerCommand(_symbolTable, _pathToVar, _modifier));
+  _expressionsMap->operator[]("openDataServer") =
+      new CommandExpression(new OpenServerCommand(_symbolTable, _pathToVar, _modifier));
   _expressionsMap->operator[]("var") = new CommandExpression(new DefineVarCommand(_symbolTable, _expressionsMap));
-  _expressionsMap->operator[]("=") = new CommandExpression(new AssignCommand(_symbolTable, _pathToVar, _bindedVarTable, _modifier));
+  _expressionsMap->operator[]("=") =
+      new CommandExpression(new AssignCommand(_symbolTable, _pathToVar, _bindedVarTable, _modifier));
   _expressionsMap->operator[]("Print") = new CommandExpression(new PrintCommand(_symbolTable));
   _expressionsMap->operator[]("Sleep") = new CommandExpression(new SleepCommand(_symbolTable));
   _expressionsMap->operator[]("if") = new CommandExpression(new IfCommand(_symbolTable, _expressionsMap, this));
   _expressionsMap->operator[]("while") = new CommandExpression(new LoopCommand(_symbolTable, _expressionsMap, this));
   _expressionsMap->operator[]("->") = new CommandExpression(new LRarrow(_varToPath));
   _expressionsMap->operator[]("<-") = new CommandExpression(new RLarrow(_pathToVar));
-  for (auto it = _expressionsMap->begin(); it != _expressionsMap->end(); it++ )
+  for (auto it = _expressionsMap->begin(); it != _expressionsMap->end(); it++)
     _commandNames->push_back(it->first);
   Evaluator::commandNames = this->_commandNames;
 }
 
-bool Parser::isScriptFile(string& line) {
+bool Parser::isScriptFile(string &line) {
   bool flag;
   vector<string> words = StringHelper::split(line, DELIM);
   if (words.size() != 2)
@@ -127,7 +129,7 @@ bool Parser::isScriptFile(string& line) {
   return flag;
 }
 
-void Parser::setStream(istream& stream) {
+void Parser::setStream(istream &stream) {
   _stream = &stream;
 }
 

@@ -15,10 +15,10 @@ using namespace std;
 class Command {
  protected:
   unsigned int _argumentsAmount;
-  map<string, double>* _symbolTable;
+  map<string, double> *_symbolTable;
 
  public:
-  virtual int execute(vector<string>& arguments, unsigned int index) = 0;
+  virtual int execute(vector<string> &arguments, unsigned int index) = 0;
 
   virtual ~Command() {}
 };

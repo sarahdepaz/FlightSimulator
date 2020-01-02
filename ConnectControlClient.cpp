@@ -12,7 +12,7 @@
 #define MAX_PORT_SIZE 65536
 #define MIN_PORT_SIZE 1
 
-ConnectControlClient::ConnectControlClient(map<string, double>* symbolTable) {
+ConnectControlClient::ConnectControlClient(map<string, double> *symbolTable) {
   _symbolTable = symbolTable;
   _argumentsAmount = 4;
   _client_fd = -1;
@@ -22,7 +22,7 @@ ConnectControlClient::ConnectControlClient(map<string, double>* symbolTable) {
  * function that starts the connection between the simulator and program
  * as clients.
 */
-void ConnectControlClient::startClient(const char* dst_addr) {
+void ConnectControlClient::startClient(const char *dst_addr) {
   close(_client_fd);
   struct sockaddr_in address;
   // tries to open a socket
@@ -35,7 +35,7 @@ void ConnectControlClient::startClient(const char* dst_addr) {
   inet_aton(dst_addr, &address.sin_addr);
   address.sin_port = htons(_port);
   // tries to connect to simulator
-  if (connect(_client_fd, (struct sockaddr*) &address, sizeof(address)) < 0) {
+  if (connect(_client_fd, (struct sockaddr *) &address, sizeof(address)) < 0) {
     cout << "Could not connect, CLI is terminated" << endl;
     exit(1);
   }
@@ -46,14 +46,14 @@ void ConnectControlClient::startClient(const char* dst_addr) {
  * do Command reads the arguments and sets the connection
  * between the simulator.
  * */
-int ConnectControlClient::execute(vector<string>& arguments, unsigned int index) {
+int ConnectControlClient::execute(vector<string> &arguments, unsigned int index) {
   index += 2;
   if ((arguments.size() - 1) < _argumentsAmount)
     throw "Arguments amount is lower than " + to_string(_argumentsAmount);
   string ip_address = arguments[index];
   if (ip_address[0] == '\"')
     ip_address = arguments[index].substr(1, arguments[index].length() - 2);
-  const char* ip_address_after_remove = ip_address.c_str();
+  const char *ip_address_after_remove = ip_address.c_str();
   _port = (int) Evaluator::evaluate(arguments, &(++index), _symbolTable);
   if (_port < MIN_PORT_SIZE || _port > MAX_PORT_SIZE)
     throw "Second argument must be in range of 1-65536";
@@ -62,9 +62,9 @@ int ConnectControlClient::execute(vector<string>& arguments, unsigned int index)
 }
 
 void ConnectControlClient::sendMessage(const string message) {
-  char* msg = NULL;
+  char *msg = NULL;
   while (msg == NULL)
-    msg = (char*) malloc((message.length() + 3)*sizeof(char));
+    msg = (char *) malloc((message.length() + 3) * sizeof(char));
   strcpy(msg, message.c_str());
   strcat(msg, "\r\n");
   send(_client_fd, msg, strlen(msg), 0);

@@ -13,10 +13,10 @@
 using namespace std;
 
 class LRarrow : public Command {
-  map<string, string>* _varToPath;
+  map<string, string> *_varToPath;
  public:
-  LRarrow(map<string, string>* varToPath);
-  virtual int execute(vector<string>& arguments, unsigned int index);
+  LRarrow(map<string, string> *varToPath);
+  virtual int execute(vector<string> &arguments, unsigned int index);
 };
 
 #endif //FLIGHTSIMSHARED__LRARROW_H_

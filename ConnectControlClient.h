@@ -3,7 +3,10 @@
 #include "Command.h"
 
 using namespace std;
-
+/**
+ * ConnectControlClient class
+* connect to with the simulator.
+* */
 class ConnectControlClient : public Command {
   int _client_fd;
   int _port;
@@ -13,13 +16,13 @@ class ConnectControlClient : public Command {
 
  public:
 
-  /*
+  /**
   * function that starts the connection between the simulator and program
   * as clients.
   */
   ConnectControlClient(map<string, double> *symbolTable);
 
-  /*
+  /**
   * do Command reads the arguments and sets the connection
   * between the simulator.
   * */

@@ -22,6 +22,9 @@ DataReaderServer::~DataReaderServer() {
   close(this->_sockID);
 }
 
+/**
+*constructor.
+*/
 DataReaderServer::DataReaderServer(map<string, double> *symbolTable,
                                    map<string, string> *pathToVar,
 
@@ -33,7 +36,7 @@ DataReaderServer::DataReaderServer(map<string, double> *symbolTable,
   _sockID = -1;
 }
 
-/*
+/**
 * execute ->
 * Opens a server on a different thread that the simulator connects to, and recieves messages from it
 * at a given speed.
@@ -50,7 +53,7 @@ int DataReaderServer::execute(vector<string> &arguments, unsigned int index) {
   return index + 2;
 }
 
-/*
+/**
 * opens a socket and waits for first signs from the simulator.
 * */
 void DataReaderServer::openSocket() {
@@ -81,7 +84,7 @@ void DataReaderServer::openSocket() {
   // cout << "Server has now accepted this client: " << address.sin_addr.s_addr << ", " << address.sin_port << endl;
 }
 
-/*
+/**
 * starts the server on a different thread that runs on the
 * speed given in the arguments.
 * */

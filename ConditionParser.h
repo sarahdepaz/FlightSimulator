@@ -7,7 +7,10 @@
 #include "Parser.h"
 
 #define PAIR pair<Expression*, vector<string>>;
-
+/**
+ * ConditionParser class
+* seperate the conditions in the xml .
+* */
 class ConditionParser : public Command {
   Parser *_interpreter;
   map<string, double> *_symbolTable;
@@ -21,7 +24,7 @@ class ConditionParser : public Command {
 
  protected:
 
-  /*
+  /**
    * function that calculates whether the condition
    * held by the condition parser is accurate.
    * */
@@ -30,7 +33,8 @@ class ConditionParser : public Command {
   // this function runs the commands in the body's block.
   void runBlock(vector<string> &arguments);
 
-  // extracts the block of commands from the condition.
+  /** extracts the block of commands from the condition.
+   * **/
   vector<string> extractBlock(vector<string> &vec);
 };
 

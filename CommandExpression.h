@@ -7,8 +7,9 @@
 
 using namespace std;
 
-/*
- * Class that adapts a Command as an Expression object.
+/**
+ * CommandExpression
+ * adapts a Command as an Expression object.
  * */
 class CommandExpression : public Expression {
   Command *_command;

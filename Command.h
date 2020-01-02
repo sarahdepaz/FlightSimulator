@@ -5,12 +5,12 @@
 #include <string>
 #include <map>
 #include "Evaluator.h"
-//hfhbf
+
 using namespace std;
 
-/*
- * Command - Abstract class.
- * Represents commands that are enabled in our interpreter.
+/**
+ * Command class.
+ * abstract class that epresents commands that are enabled in our interpreter.
  * */
 class Command {
  protected:

@@ -7,7 +7,9 @@
 #define DELIM "\n"
 
 using namespace std;
-
+/**
+*constructor.
+*/
 ConditionParser::ConditionParser(map<string, double> *symbolTable,
                                  map<string, Expression *> *expressionsMap,
                                  Parser *interpreter) {
@@ -18,7 +20,7 @@ ConditionParser::ConditionParser(map<string, double> *symbolTable,
   _operatorsMap = {{"<", 1}, {"<=", 2}, {">", 3}, {">=", 4}, {"==", 5}, {"!=", 6}};
 }
 
-/*
+/**
  * function that calculates whether the condition
  * held by the condition parser is accurate.
  * */
@@ -65,12 +67,14 @@ bool ConditionParser::conditionIsTrue(vector<string> &arguments) {
   };
 }
 
-// function that calls parser on condition body's block.
+/** function that calls parser on condition body's block.
+ **/
 void ConditionParser::runBlock(vector<string> &arguments) {
   _interpreter->parser(arguments, 0);
 }
 
-// extracts the block of commands from the condition.
+/** extracts the block of commands from the condition.
+ * **/
 vector<string> ConditionParser::extractBlock(vector<string> &vec) {
   int i = StringHelper::nextIndexOf(vec.begin(), "{", vec.end());
   auto itr = vec.begin() + i;

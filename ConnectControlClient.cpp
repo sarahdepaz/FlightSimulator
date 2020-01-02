@@ -11,14 +11,16 @@
 
 #define MAX_PORT_SIZE 65536
 #define MIN_PORT_SIZE 1
-
+/**
+*constructor.
+*/
 ConnectControlClient::ConnectControlClient(map<string, double> *symbolTable) {
   _symbolTable = symbolTable;
   _argumentsAmount = 4;
   _client_fd = -1;
 }
 
-/*
+/**
  * function that starts the connection between the simulator and program
  * as clients.
 */
@@ -42,7 +44,7 @@ void ConnectControlClient::startClient(const char *dst_addr) {
 // cout << "Client socket is now connected to: " << address.sin_addr.s_addr << ", " << address.sin_port << endl;
 }
 
-/*
+/**
  * do Command reads the arguments and sets the connection
  * between the simulator.
  * */

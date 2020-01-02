@@ -5,7 +5,10 @@
 #include "Modifier.h"
 
 using namespace std;
-
+/**
+ * DataReaderServer class
+* reads the data from the xml file.
+* */
 class DataReaderServer : public Command {
   map<string, string> *_pathToVar;
   Modifier *_modifier;
@@ -18,7 +21,7 @@ class DataReaderServer : public Command {
 
                    Modifier *modifier);
 
-  /*
+  /**
   * execute ->
   * Opens a server on a different thread that the simulator connects to, and recieves messages from it
   * at a given speed.
@@ -27,7 +30,7 @@ class DataReaderServer : public Command {
   virtual ~DataReaderServer();
  private:
 
-  /*
+  /**
   * opens a socket and waits for first signs from the simulator.
   * */
   void openSocket();

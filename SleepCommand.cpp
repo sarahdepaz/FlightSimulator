@@ -4,12 +4,18 @@
 #define MILLI_IN_MICRO 1000
 
 using namespace std;
-
+/**
+* construcor.
+* */
 SleepCommand::SleepCommand(map<string, double> *symbolTable) {
   _argumentsAmount = 3;
   _symbolTable = symbolTable;
 }
 
+/**
+* execute
+* if the argument amount dont match it sleeps for the chosen time.
+*/
 int SleepCommand::execute(vector<string> &arguments, unsigned int index) {
   if ((arguments.size() - 1) < _argumentsAmount) {
     throw "Arguments amount is lower than " + to_string(_argumentsAmount);

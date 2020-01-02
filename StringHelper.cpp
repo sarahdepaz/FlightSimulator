@@ -5,7 +5,7 @@
 
 using namespace std;
 
-/*
+/**
 * adds spaces to a line before and after operators.
 * */
 void StringHelper::addSpaces(string &line) {

@@ -8,7 +8,10 @@
 #include "Modifier.h"
 
 using namespace std;
-
+/**
+ * Parser class
+*  Interprets the code into maps of commands .
+* */
 class Parser {
  private:
   map<string, Expression *> *_expressionsMap;

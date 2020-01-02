@@ -18,7 +18,9 @@
 #define BLOCK_COMMANDS ",while,if,"
 
 using namespace std;
-
+/**
+* constructor.
+* */
 Parser::Parser() {
   _expressionsMap = new map<string, Expression *>();
   _symbolTable = new map<string, double>();
@@ -29,7 +31,9 @@ Parser::Parser() {
   _stream = &cin;
   setExpressionsMap();
 }
-
+/**
+* seperate the file into lines.
+* */
 unsigned int Parser::parser(vector<string> line, int index) {
   unsigned int linesC = 1;
   for (unsigned int i = index; i < line.size();) {
@@ -67,6 +71,7 @@ unsigned int Parser::parser(vector<string> line, int index) {
   return linesC;
 }
 
+
 vector<string> Parser::parseBlock(vector<string> &line, unsigned int *i, unsigned int &linesC) {
   string seperator = ",";
   string blockCommands = string(BLOCK_COMMANDS);
@@ -94,7 +99,9 @@ vector<string> Parser::parseBlock(vector<string> &line, unsigned int *i, unsigne
   }
   return line;
 }
-
+/**
+* sets the expressions into different maps.
+* */
 void Parser::setExpressionsMap() {
   ConnectControlClient *connect = new ConnectControlClient(_symbolTable);
   _modifier = new Modifier(_bindedVarTable, _symbolTable, _varToPath, connect);
@@ -114,7 +121,9 @@ void Parser::setExpressionsMap() {
     _commandNames->push_back(it->first);
   Evaluator::commandNames = this->_commandNames;
 }
-
+/**
+* checks if its script file.
+* */
 bool Parser::isScriptFile(string &line) {
   bool flag;
   vector<string> words = StringHelper::split(line, DELIM);
@@ -128,11 +137,16 @@ bool Parser::isScriptFile(string &line) {
   file.close();
   return flag;
 }
-
+/**
+* set the adress
+* */
 void Parser::setStream(istream &stream) {
   _stream = &stream;
 }
 
+/**
+* destructors.
+* */
 Parser::~Parser() {
   delete _expressionsMap;
   delete _symbolTable;

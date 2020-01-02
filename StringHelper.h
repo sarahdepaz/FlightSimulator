@@ -6,7 +6,10 @@
 #include <string>
 
 using namespace std;
-
+/**
+ * StringHelper class
+* helps us to read and seperate the data from the xml correctly.
+* */
 class StringHelper {
  public:
   static void addSpaces(string &line);

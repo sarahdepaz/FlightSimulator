@@ -3,10 +3,10 @@
 #include "Evaluator.h"
 #include <stdio.h>
 // Assignement of command
-AssignCommand::AssignCommand(map<string, double>* symbolTable,
-                             map<string, string>* pathToVar,
-                             map<string, vector<string>>* bindedVarTable,
-                             Modifier* modifier) {
+AssignCommand::AssignCommand(map<string, double> *symbolTable,
+                             map<string, string> *pathToVar,
+                             map<string, vector<string>> *bindedVarTable,
+                             Modifier *modifier) {
   _symbolTable = symbolTable;
   _pathToVar = pathToVar;
   _bindedVarTable = bindedVarTable;
@@ -18,7 +18,7 @@ AssignCommand::AssignCommand(map<string, double>* symbolTable,
 * execute ->
 * assigns variable it's requested value. 
 */
-int AssignCommand::execute(vector<string>& arguments, unsigned int index) {
+int AssignCommand::execute(vector<string> &arguments, unsigned int index) {
   if ((arguments.size() - 1) < _argumentsAmount)
     throw "Arguments amount is lower than " + to_string(_argumentsAmount);
   // if variable doesn't exist, sends an exception.

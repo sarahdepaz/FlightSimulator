@@ -6,7 +6,6 @@
 using namespace std;
 
 /**
- * StringHelper class
 * adds spaces to a line before and after operators.
 * */
 void StringHelper::addSpaces(string &line) {
@@ -30,7 +29,7 @@ void StringHelper::addSpaces(string &line) {
   }
 }
 
-/*
+/**
 * returns a string concatenating a vector of strings.
 * */
 string StringHelper::getArgument(vector<string> &arguments) {
@@ -40,7 +39,7 @@ string StringHelper::getArgument(vector<string> &arguments) {
   return argument;
 }
 
-/*
+/**
 * gets a string and splits it by a given set of strings.
 * returns a vector of strings.
 * */
@@ -58,7 +57,7 @@ vector<string> StringHelper::split(string line, const char *delim) {
   return commands;
 }
 
-/*
+/**
 * only for lexer. the function does split by () but will not remove them
 * gets a string and splits it by a given set of strings.
 * returns a vector of strings.
@@ -79,7 +78,7 @@ vector<string> StringHelper::split2(string line, const char *delim) {
   return commands;
 }
 
-/*
+/**
 * returns whether the string s ends with the string suffix.
 * */
 bool StringHelper::endsWith(const string s, const string suffix) {
@@ -91,7 +90,7 @@ bool StringHelper::endsWith(const string s, const string suffix) {
     return (s.compare(sLen - suffixLen, suffixLen, suffix) == 0);
 }
 
-/*
+/**
 * returns whether the string s starts with the string prefix.
 * */
 bool StringHelper::startsWith(const string s, const string prefix) {
@@ -103,7 +102,7 @@ bool StringHelper::startsWith(const string s, const string prefix) {
     return (s.compare(0, prefixLen, prefix) == 0);
 }
 
-/*
+/**
 * splits a vector of strings to e vector of vectors of strings by a given character to split by.
 * */
 vector<vector<string>> StringHelper::splitVector(const vector<string> &vec, const char *delim) {
@@ -126,7 +125,7 @@ vector<vector<string>> StringHelper::splitVector(const vector<string> &vec, cons
   return total;
 }
 
-/*
+/**
 * removes all strings from a vector of strings untill reached the flag s.
 * watch out! can remove the whole vector!
 * returns a new vector.
@@ -139,7 +138,7 @@ vector<string> StringHelper::removeUntill(vector<string> v, const string s) {
   return v;
 }
 
-/*
+/**
 * returns the next index where we have the string s in a vector of strings.
 * */
 int StringHelper::nextIndexOf(vector<string>::iterator itr, const string s, vector<string>::iterator end) {

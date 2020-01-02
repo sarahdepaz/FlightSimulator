@@ -2,7 +2,7 @@
 #include "StringHelper.h"
 #include "Evaluator.h"
 #include <stdio.h>
-//hello
+// Assignement of command
 AssignCommand::AssignCommand(map<string, double>* symbolTable,
                              map<string, string>* pathToVar,
                              map<string, vector<string>>* bindedVarTable,

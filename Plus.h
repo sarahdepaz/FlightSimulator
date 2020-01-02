@@ -4,7 +4,10 @@
 #include "BinaryExpression.h"
 
 using namespace std;
-
+/**
+ * Plus class
+*  define the binary expression plus.
+* */
 class Plus : public BinaryExpression {
  public:
   Plus(Expression &left_expression,

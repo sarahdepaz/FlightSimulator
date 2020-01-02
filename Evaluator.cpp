@@ -19,7 +19,7 @@ double Evaluator::evaluate(vector<string> arguments, unsigned int *index, map<st
   return calculatePostfix(postfix);
 }
 
-/*
+/**
 * assigns variables value by a given map.
 * */
 vector<string> Evaluator::assignVars(vector<string> arguments,
@@ -58,7 +58,7 @@ vector<string> Evaluator::assignVars(vector<string> arguments,
   return arguments;
 }
 
-/*
+/**
 * returns the last index of the expression.
 * */
 unsigned int Evaluator::lastIndex(vector<string> arguments,
@@ -83,7 +83,7 @@ unsigned int Evaluator::lastIndex(vector<string> arguments,
   return arguments.size() - 1;
 }
 
-/*
+/**
 * turns an infix vector to postfix.
 * */
 vector<string> Evaluator::toPostfix(vector<string> arguments,
@@ -129,7 +129,7 @@ vector<string> Evaluator::toPostfix(vector<string> arguments,
   return postfix;
 }
 
-/*
+/**
 * calculates a postfix vector representing mathematica expression.
 * */
 double Evaluator::calculatePostfix(vector<string> arguments) {
@@ -152,7 +152,7 @@ double Evaluator::calculatePostfix(vector<string> arguments) {
   return operands.top().calculate(arguments, 0);
 }
 
-/*
+/**
 * returns a number expression by activating the operand on two numbers.
 * */
 Number Evaluator::calculateNumber(string operant, Number leftNumber, Number rightNumber) {

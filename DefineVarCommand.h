@@ -4,7 +4,10 @@
 #include "Command.h"
 
 using namespace std;
-
+/**
+ * DefineVarCommand class
+* define the variebles as commands.
+* */
 class DefineVarCommand : public Command {
   map<string, Expression *> *_savedNames;
 

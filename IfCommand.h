@@ -6,7 +6,10 @@
 #include "Parser.h"
 
 using namespace std;
-
+/**
+ * IfCommand class
+* handel with command in loops .
+* */
 class IfCommand : public ConditionParser {
  public:
   IfCommand(map<string, double> *symbolTable,

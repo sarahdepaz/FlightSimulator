@@ -8,7 +8,9 @@
 #include <map>
 
 using namespace std;
-
+/**
+ * Evaluator class.
+* */
 class Evaluator {
   static map<string, int> _precedenceMap;
   static double calculatePostfix(vector<string> arguments);

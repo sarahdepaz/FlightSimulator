@@ -4,7 +4,10 @@
 #include "BinaryExpression.h"
 
 using namespace std;
-
+/**
+ * Div class
+*  define the binary expression divide.
+* */
 class Div : public BinaryExpression {
  public:
   Div(Expression &left_expression,

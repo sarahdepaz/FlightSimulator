@@ -6,14 +6,16 @@
 #include <math.h>
 
 using namespace std;
-
+/**
+*constructor.
+*/
 DefineVarCommand::DefineVarCommand(map<string, double> *symbolTable, map<string, Expression *> *savedNames) {
   _symbolTable = symbolTable;
   _savedNames = savedNames;
   _argumentsAmount = 1;
 }
 
-/*
+/**
 * execute ->
 * adds the variable to the variables map and sets it's value to nan (not a number).
 */
@@ -32,7 +34,7 @@ int DefineVarCommand::execute(vector<string> &arguments, unsigned int index) {
   return ++index;
 }
 
-/*
+/**
 * checks is variable's name is valid.
 * */
 void DefineVarCommand::checkValidity(string varName) {

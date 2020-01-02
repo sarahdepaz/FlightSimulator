@@ -2,7 +2,9 @@
 #include "StringHelper.h"
 
 using namespace std;
-
+/**
+*IfCommand.
+*/
 IfCommand::IfCommand(map<string, double> *symbolTable,
                      map<string, Expression *> *expressionsMap,
                      Parser *interpreter) :
@@ -10,7 +12,7 @@ IfCommand::IfCommand(map<string, double> *symbolTable,
   _argumentsAmount = 5;
 }
 
-/*
+/**
 * extracts it's block of commands and runs it if condition is true.
 * */
 int IfCommand::execute(vector<string> &arguments, unsigned int index) {

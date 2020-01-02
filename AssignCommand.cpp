@@ -2,7 +2,9 @@
 #include "StringHelper.h"
 #include "Evaluator.h"
 #include <stdio.h>
-// Assignement of command
+/**
+*constructor.
+*/
 AssignCommand::AssignCommand(map<string, double> *symbolTable,
                              map<string, string> *pathToVar,
                              map<string, vector<string>> *bindedVarTable,
@@ -14,7 +16,7 @@ AssignCommand::AssignCommand(map<string, double> *symbolTable,
   _argumentsAmount = 2;
 }
 
-/*
+/**
 * execute ->
 * assigns variable it's requested value. 
 */

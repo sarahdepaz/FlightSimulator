@@ -5,7 +5,10 @@
 #include "Command.h"
 
 using namespace std;
-
+/**
+ * AssignCommand class
+* assign the command into the maps.
+* */
 class AssignCommand : public Command {
   map<string, vector<string>> *_bindedVarTable;
   map<string, string> *_pathToVar;
@@ -17,7 +20,7 @@ class AssignCommand : public Command {
                 map<string, vector<string>> *bindedVarTable,
                 Modifier *modifier);
 
-  /*
+  /**
   * execute ->
   * assigns variable it's requested value.
   */

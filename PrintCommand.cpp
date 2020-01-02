@@ -5,13 +5,15 @@
 #include <algorithm>
 
 using namespace std;
-
+/**
+*constructor.
+*/
 PrintCommand::PrintCommand(map<string, double> *symbolTable) {
   _symbolTable = symbolTable;
   _argumentsAmount = 3;
 }
 
-/*
+/**
 * prints the variables/strings/expressions given as argumennts.
 * */
 int PrintCommand::execute(vector<string> &arguments, unsigned int index) {

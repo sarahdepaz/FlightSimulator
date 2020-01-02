@@ -6,7 +6,9 @@
 #include <algorithm>
 
 using namespace std;
-
+/**
+ * PrintCommand class
+* */
 class PrintCommand : public Command {
 
  public:

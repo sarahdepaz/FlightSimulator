@@ -13,9 +13,9 @@ class Number : public Expression {
     _value = value;
   }
 
-  virtual double calculate(vector<string>&, int ) {
+  virtual double calculate(vector<string> &, int) {
     return _value;
   }
 };
 
-#endif	//	!NUMBER_H
+#endif    //	!NUMBER_H

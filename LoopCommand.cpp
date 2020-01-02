@@ -2,7 +2,9 @@
 #include "StringHelper.h"
 
 using namespace std;
-
+/**
+*constructor.
+*/
 LoopCommand::LoopCommand(map<string, double> *symbolTable,
                          map<string, Expression *> *expressionsMap,
                          Parser *interpreter) :
@@ -10,7 +12,7 @@ LoopCommand::LoopCommand(map<string, double> *symbolTable,
   _argumentsAmount = 5;
 }
 
-/*
+/**
 * extracts it's block of commands and runs it while condition is true.
 * */
 int LoopCommand::execute(vector<string> &arguments, unsigned int index) {

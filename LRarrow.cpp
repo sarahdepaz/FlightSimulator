@@ -6,11 +6,17 @@
 #include <iostream>
 
 using namespace std;
-
+/**
+*constructor.
+*/
 LRarrow::LRarrow(map<string, string>* varToPath) {
   this->_varToPath = varToPath;
 }
 
+/**
+* execute
+* if the arrow is from rleft to right we send the command to the simulator .
+*/
 int LRarrow::execute(vector<string>& arguments, unsigned int index) {
   string path = arguments[index + 3];
   string varName = arguments[index - 1];

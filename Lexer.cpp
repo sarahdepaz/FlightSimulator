@@ -6,7 +6,9 @@
 #include "StringHelper.h"
 
 #define DELIM "\t (),"
-
+/**
+*return the string helper to split the lines.
+*/
 vector<string> Lexer::lexer(string line) {
   return StringHelper::split2(line, DELIM);
 }

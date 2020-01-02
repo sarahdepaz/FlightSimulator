@@ -14,7 +14,7 @@
 
 using namespace std;
 
-/*
+/**
 * main function that runs the interpreter.
 * reads the script line by line.
 * */

@@ -6,7 +6,7 @@
 
 using namespace std;
 
-/*
+/**
 * class that manages all of the variables values in our interpreter.
 * */
 class Modifier {

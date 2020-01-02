@@ -4,7 +4,10 @@
 #include "Expression.h"
 
 using namespace std;
-
+/**
+ * Number class
+*  define the value as class number.
+* */
 class Number : public Expression {
  private:
   double _value;

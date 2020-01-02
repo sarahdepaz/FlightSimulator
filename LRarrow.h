@@ -11,7 +11,10 @@
 #include <vector>
 
 using namespace std;
-
+/**
+ * LRarrow class
+* the arrow sign from left to right.
+* */
 class LRarrow : public Command {
   map<string, string> *_varToPath;
  public:

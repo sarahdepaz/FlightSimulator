@@ -7,7 +7,9 @@
 #include "DataReaderServer.h"
 
 using namespace std;
-
+/**
+ * OpenServerConnect class.
+* */
 class OpenServerCommand : public Command {
   DataReaderServer _dataReaderServer;
 

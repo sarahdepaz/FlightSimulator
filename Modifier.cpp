@@ -1,7 +1,9 @@
 #include "Modifier.h"
 
 using namespace std;
-
+/**
+*constructor.
+*/
 Modifier::Modifier(map<string, vector<string>> *bindedVarTable,
                    map<string, double> *symbolTable,
                    map<string, string> *varToPath,
@@ -12,7 +14,7 @@ Modifier::Modifier(map<string, vector<string>> *bindedVarTable,
   _connectCommand = connectCommand;
 }
 
-/*
+/**
 * sets a variable's value and all of it's binded variables values.
 * */
 void Modifier::setVariableValue(string var, double value) {
@@ -36,7 +38,7 @@ void Modifier::setVariableValue(string var, double value) {
   }
 }
 
-/*
+/**
 * sends the simulator the updated values.
 * */
 void Modifier::updateSimulator(string varName) {

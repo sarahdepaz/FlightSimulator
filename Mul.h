@@ -4,7 +4,10 @@
 #include "BinaryExpression.h"
 
 using namespace std;
-
+/**
+ * Mul class
+*  define the binary expression multiplay.
+* */
 class Mul : public BinaryExpression {
  public:
   Mul(Expression &left_expression,

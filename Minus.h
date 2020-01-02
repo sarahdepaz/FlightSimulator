@@ -5,7 +5,10 @@
 #include "BinaryExpression.h"
 
 using namespace std;
-
+/**
+ * Minus class
+*  define the binary expression minus.
+* */
 class Minus : public BinaryExpression {
  public:
   Minus(Expression &left_expression,

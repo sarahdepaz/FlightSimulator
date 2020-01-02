@@ -9,7 +9,10 @@
 #include <vector>
 
 using namespace std;
-
+/**
+ * Lexer class
+*  Iseperate the xml to lines .
+* */
 class Lexer {
  public:
   static vector<string> lexer(string line);

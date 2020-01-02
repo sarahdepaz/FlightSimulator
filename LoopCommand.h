@@ -6,7 +6,10 @@
 #include "Parser.h"
 
 using namespace std;
-
+/**
+ * LoopCommand class
+*checks and handles the command in the loop
+* */
 class LoopCommand : public ConditionParser {
  public:
   LoopCommand(map<string, double> *symbolTable,

@@ -7,7 +7,10 @@
 RLarrow::RLarrow(map<string, string> *pathToVar) {
   this->_pathToVar = pathToVar;
 }
-
+/**
+* execute
+* if the arrow is from right to left we accept the command from the simulator .
+*/
 int RLarrow::execute(vector<string> &arguments, unsigned int index) {
   string path = arguments[index + 3];
   string varName = arguments[index - 1];

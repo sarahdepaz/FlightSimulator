@@ -11,6 +11,10 @@
 
 using namespace std;
 
+/**
+ * RLarrow class
+* the arrow sign from right to left.
+* */
 class RLarrow : public Command {
   map<string, string> *_pathToVar;
  public:

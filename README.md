@@ -21,20 +21,32 @@ This will open two communication sockets - 'in' where you send commands to the s
 
 # Running
 
-a. Exceute the code using the terminal or any c++ work environment. The program will wait for a connection from the simulator.
+a. Exceute the code using the terminal or any c++ work environment.<br>
+```
+g++ -std=c++11 *.cpp -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -o a.out -pthread
+```
+Then, run:<br>
+```
+./a.out fly.txt 
+```
 
-b. Click the 'Fly!' icon in the simulator in the bottom left corner (see above picture), and wait for the simulator to load. It will connect to the interpreter in the meantime.<br>
+The program will wait for a connection from the simulator.
 
-The code is designed to read lines of commands entered in a terminal from the user once the program has started running. The commands can be entered one at a time or by using a pre-made script (make sure each command starts in a new line).
+b. Click the 'Fly!' icon in the simulator in the bottom left corner, and wait for the simulator to load. It will connect to the interpreter in the meantime.<br>
 
-First, enter the following commands to open a local communication server to the simulator and connect to it:
-openDataServer(5400)
-connectControlClient("127.0.0.1",5402)
+When fly.txt is exeshuted you will see the plane takeoff and fly.<br>
+
+# About the code:
+You may want to change the fly.txt script provided and create your own script.<br>
+The code is designed to read lines of commands entered in a terminal from the use once the program has started running.<br> 
+The commands can be entered one at a time or by using a pre-made script (make sure each command starts in a new line).<br>
+In your cusotmized script you must first open the client and server connection:<br>
+openDataServer(5400)<br>
+connectControlClient("127.0.0.1",5402)<br>
+Then, you will start intializing your variables, loops and commands:<br>
 
 # Initialize your variables:
 ```
-openDataServer(5400)
-connectControlClient("127.0.0.1",5402)
 var warp -> sim("/sim/time/warp")
 var magnetos -> sim("/controls/switches/magnetos")
 var throttle -> sim("/controls/engines/current-engine/throttle")
@@ -90,7 +102,6 @@ while alt < 1000 {
 }
 Print("done")
 ```
-
 
 The program reads the code, parses it and sends the commands to the simulator, changing the behavior of the aircraft accordingly. <br>In this example, the interpreter enters the loop, adjusts variables, prints the current altitude of the aircraft and halts the reading for 250 miliseconds. <br>When the altitude is over 1000, the loop will terminate and the next lines will be parsed.<br>
 
